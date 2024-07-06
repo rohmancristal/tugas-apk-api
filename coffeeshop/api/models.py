@@ -20,7 +20,7 @@ class Pesanan(models.Model):
     waktu_pemesanan = models.DateTimeField(auto_now_add=True)
     total_harga = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=20, choices=(('Menunggu', 'Menunggu'), ('Diproses', 'Diproses'), ('Selesai', 'Selesai')))
-    metode_pembayaran = models.CharField(max_length=20, choices=(('Tunai', 'Tunai'), ('Debit', 'Debit'), ('Kredit', 'Kredit')))
+    metode_pembayaran = models.CharField(max_length=20, choices=(('Tunai', 'Tunai'), ('Debit', 'Debit'), ('qris', 'qris')))
 
     def __str__(self):
         return f"Pesanan #{self.id} dari {self.pelanggan.nama} ({self.status})"
