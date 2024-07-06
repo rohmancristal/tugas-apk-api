@@ -1,14 +1,25 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import MenuViewSet, KategoriViewSet, PesananViewSet, PelangganViewSet, MejaViewSet
-
-router = DefaultRouter()
-router.register(r'Menu', MenuViewSet)
-router.register(r'Kategori', KategoriViewSet)
-router.register(r'Pesanan', PesananViewSet)
-router.register(r'Pelanggan', PelangganViewSet)
-router.register(r'Meja', MejaViewSet)
+from django.urls import path
+from .views import (
+    MenuListCreateAPIView, MenuDetailAPIView,
+    KategoriListCreateAPIView, KategoriDetailAPIView,
+    PesananListCreateAPIView, PesananDetailAPIView,
+    PelangganListCreateAPIView, PelangganDetailAPIView,
+    MejaListCreateAPIView, MejaDetailAPIView
+)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('menu/', MenuListCreateAPIView.as_view(), name='menu-list-create'),
+    path('menu/<int:pk>/', MenuDetailAPIView.as_view(), name='menu-detail'),
+    
+    path('kategori/', KategoriListCreateAPIView.as_view(), name='kategori-list-create'),
+    path('kategori/<int:pk>/', KategoriDetailAPIView.as_view(), name='kategori-detail'),
+    
+    path('pesanan/', PesananListCreateAPIView.as_view(), name='pesanan-list-create'),
+    path('pesanan/<int:pk>/', PesananDetailAPIView.as_view(), name='pesanan-detail'),
+    
+    path('pelanggan/', PelangganListCreateAPIView.as_view(), name='pelanggan-list-create'),
+    path('pelanggan/<int:pk>/', PelangganDetailAPIView.as_view(), name='pelanggan-detail'),
+    
+    path('meja/', MejaListCreateAPIView.as_view(), name='meja-list-create'),
+    path('meja/<int:pk>/', MejaDetailAPIView.as_view(), name='meja-detail'),
 ]
