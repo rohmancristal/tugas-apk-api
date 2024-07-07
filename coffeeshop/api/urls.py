@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import (
     MenuListCreateAPIView, MenuDetailAPIView,
-    KategoriListCreateAPIView, KategoriDetailAPIView,
     PesananListCreateAPIView, PesananDetailAPIView,
     PelangganListCreateAPIView, PelangganDetailAPIView,
     MejaListCreateAPIView, MejaDetailAPIView
@@ -10,9 +9,6 @@ from .views import (
 urlpatterns = [
     path('menu/', MenuListCreateAPIView.as_view(), name='menu-list-create'),
     path('menu/<int:pk>/', MenuDetailAPIView.as_view(), name='menu-detail'),
-    
-    path('kategori/', KategoriListCreateAPIView.as_view(), name='kategori-list-create'),
-    path('kategori/<int:pk>/', KategoriDetailAPIView.as_view(), name='kategori-detail'),
     
     path('pesanan/', PesananListCreateAPIView.as_view(), name='pesanan-list-create'),
     path('pesanan/<int:pk>/', PesananDetailAPIView.as_view(), name='pesanan-detail'),

@@ -1,15 +1,10 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from .models import Menu, Kategori, Pesanan, Pelanggan, Meja
+from .models import Menu , Pesanan, Pelanggan, Meja
 
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
-        fields = '__all__'
-
-class KategoriSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Kategori
         fields = '__all__'
 
 class PesananSerializer(serializers.ModelSerializer):
